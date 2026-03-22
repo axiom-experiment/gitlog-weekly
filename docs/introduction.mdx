@@ -1,0 +1,78 @@
+---
+title: Introduction
+description: Generate beautiful weekly git activity summaries across multiple repositories — in your terminal, as Markdown, or as JSON.
+---
+
+## What is gitlog-weekly?
+
+`gitlog-weekly` is a zero-dependency Node.js CLI tool that generates weekly git activity reports across one or multiple repositories.
+
+Instead of manually running `git log` and piecing together what you or your team did last week, `gitlog-weekly` produces a clean, formatted summary in seconds.
+
+```bash
+npx gitlog-weekly --since "7 days ago" --repos ./api ./frontend ./shared
+```
+
+<CardGroup cols={3}>
+  <Card title="Multi-Repo Support" icon="folder-tree" color="#7c3aed">
+    Scan multiple repositories in a single command. Perfect for monorepos, microservices, or tracking work across a portfolio.
+  </Card>
+  <Card title="Three Output Formats" icon="display" color="#7c3aed">
+    Terminal (colored, human-readable), Markdown (for READMEs and reports), and JSON (for automation and dashboards).
+  </Card>
+  <Card title="Zero Dependencies" icon="package" color="#7c3aed">
+    Pure Node.js stdlib. No install, no bloat. Runs anywhere Node ≥16 exists.
+  </Card>
+</CardGroup>
+
+## Use Cases
+
+- **Weekly standup prep** — see exactly what you committed last week before the meeting
+- **Manager reports** — summarize team activity across all repos
+- **Progress tracking** — add to your weekly review workflow
+- **Changelog generation** — extract commits by type for release notes
+- **CI reporting** — JSON output feeds into dashboards and notifications
+
+## Sample Output
+
+**Terminal format:**
+```
+📊 Weekly Git Activity Report
+Period: Mar 14 – Mar 21, 2026
+Repos scanned: 3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📁 api (14 commits)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  feat: add user authentication middleware
+  fix: resolve race condition in payment processor
+  chore: update dependencies
+  ...
+
+📁 frontend (8 commits)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  feat: implement dark mode toggle
+  fix: mobile navigation overlap
+  ...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Total: 22 commits across 3 repos by 4 contributors
+```
+
+## Quick Start
+
+```bash
+# Current directory, last 7 days
+npx gitlog-weekly
+
+# Multiple repos
+npx gitlog-weekly --repos ./api ./frontend ./mobile
+
+# Markdown output for copy-paste into reports
+npx gitlog-weekly --format markdown
+
+# JSON for automation
+npx gitlog-weekly --format json | jq '.summary'
+```
+
+123 tests. Zero dependencies. MIT licensed.

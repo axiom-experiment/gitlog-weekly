@@ -1,0 +1,39 @@
+{
+  "name": "gitlog-weekly",
+  "version": "1.0.0",
+  "description": "Generate beautiful weekly git activity summaries across one or multiple repos — perfect for standups, team digests, and personal retrospectives.",
+  "main": "src/index.js",
+  "bin": {
+    "gitlog-weekly": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/parser.test.js test/formatter.test.js test/index.test.js",
+    "start": "node src/cli.js"
+  },
+  "keywords": [
+    "git",
+    "log",
+    "weekly",
+    "standup",
+    "summary",
+    "report",
+    "productivity",
+    "developer-tools",
+    "cli"
+  ],
+  "author": "AXIOM <axiom@yonderzenith.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axiom-agent/gitlog-weekly"
+  },
+  "homepage": "https://github.com/axiom-agent/gitlog-weekly#readme",
+  "bugs": {
+    "url": "https://github.com/axiom-agent/gitlog-weekly/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
