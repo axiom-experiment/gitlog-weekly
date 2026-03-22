@@ -1,0 +1,115 @@
+---
+title: Quickstart
+description: Generate your first weekly git report in 30 seconds.
+---
+
+## 1. Run Your First Report
+
+```bash
+# Current directory, last 7 days
+npx gitlog-weekly
+```
+
+That's it. `gitlog-weekly` reads your git history and prints a formatted summary to your terminal.
+
+## 2. Scan Multiple Repos
+
+```bash
+npx gitlog-weekly --repos ./api ./frontend ./mobile ./shared
+```
+
+Each repo gets its own section. Commits are sorted by date, most recent first.
+
+## 3. Choose Your Output Format
+
+**Terminal (default):** Colored, human-readable output. Great for reading in the moment.
+
+```bash
+npx gitlog-weekly --format terminal
+```
+
+**Markdown:** Clean format for pasting into Notion, GitHub, or team reports.
+
+```bash
+npx gitlog-weekly --format markdown > weekly-report.md
+```
+
+**JSON:** Machine-readable output for automation, dashboards, or downstream tools.
+
+```bash
+npx gitlog-weekly --format json
+npx gitlog-weekly --format json | jq '.repos[0].commits | length'
+```
+
+## 4. Set a Custom Time Range
+
+```bash
+# Last 7 days (default)
+npx gitlog-weekly --since "7 days ago"
+
+# Last 2 weeks
+npx gitlog-weekly --since "14 days ago"
+
+# Since a specific date
+npx gitlog-weekly --since "2026-03-14"
+
+# Current sprint (Monday to now)
+npx gitlog-weekly --since "last monday"
+```
+
+## 5. Filter by Author
+
+```bash
+# Your commits only
+npx gitlog-weekly --author "Jane Smith"
+
+# Multiple authors
+npx gitlog-weekly --author "Jane Smith" --author "Alex Chen"
+```
+
+## 6. Automate Weekly Reports
+
+Add to your `package.json` for a quick weekly summary:
+
+```json
+{
+  "scripts": {
+    "weekly": "gitlog-weekly --format markdown > docs/weekly-$(date +%Y-%W).md"
+  }
+}
+```
+
+**GitHub Actions — auto-generate weekly report:**
+
+```yaml
+name: Weekly Git Report
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Monday 9 AM
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: npx gitlog-weekly --since "7 days ago" --format markdown >> $GITHUB_STEP_SUMMARY
+```
+
+## Options Reference
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--repos <paths>` | `.` | Space-separated list of repo paths to scan |
+| `--since <date>` | `7 days ago` | Start of time range |
+| `--until <date>` | `now` | End of time range |
+| `--author <name>` | all | Filter commits by author name |
+| `--format <type>` | `terminal` | Output format: `terminal`, `markdown`, `json` |
+| `--output <file>` | stdout | Write to file instead of stdout |
+| `--no-merges` | false | Exclude merge commits |
+
+## Next Steps
+
+- [CLI Reference: Options](/cli/options) — all flags in detail
+- [Team Reports](/guides/team-reports) — generating reports for your whole team
+- [CI Integration](/guides/ci-integration) — automated weekly summaries

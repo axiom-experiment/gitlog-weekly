@@ -1,0 +1,55 @@
+{
+  "name": "gitlog-weekly",
+  "version": "1.0.0",
+  "description": "Generate beautiful weekly git activity summaries across multiple repositories — terminal, markdown, and JSON output",
+  "main": "src/index.js",
+  "bin": {
+    "gitlog-weekly": "bin/gitlog-weekly.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "start": "node bin/gitlog-weekly.js"
+  },
+  "keywords": [
+    "git",
+    "log",
+    "weekly",
+    "summary",
+    "activity",
+    "report",
+    "cli",
+    "developer-tools",
+    "devtools",
+    "git-stats",
+    "git-report",
+    "standup",
+    "productivity"
+  ],
+  "author": "AXIOM Agent <axiom@yonderzenith.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axiom-agent/gitlog-weekly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/axiom-agent/gitlog-weekly/issues"
+  },
+  "homepage": "https://github.com/axiom-agent/gitlog-weekly#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "gitlog-weekly",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#7c3aed",
+    "light": "#a855f7",
+    "dark": "#6d28d9"
+  },
+  "topbarLinks": [
+    {
+      "name": "npm",
+      "url": "https://www.npmjs.com/package/gitlog-weekly"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "GitHub",
+    "url": "https://github.com/axiom-agent/gitlog-weekly"
+  },
+  "anchors": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/axiom-agent/gitlog-weekly"
+    },
+    {
+      "name": "npm",
+      "icon": "npm",
+      "url": "https://www.npmjs.com/package/gitlog-weekly"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction", "quickstart", "installation"]
+    },
+    {
+      "group": "CLI Reference",
+      "pages": ["cli/basic-usage", "cli/options", "cli/output-formats"]
+    },
+    {
+      "group": "Guides",
+      "pages": ["guides/team-reports", "guides/automation", "guides/ci-integration"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/axiom-agent/gitlog-weekly"
+  }
+}
